@@ -10,9 +10,7 @@ import android.util.Log
 class TimerService : Service() {
 
     private var isRunning = false
-
     lateinit var t: TimerThread
-
     private var paused = false
 
     inner class TimerBinder : Binder() {
@@ -24,7 +22,6 @@ class TimerService : Service() {
 
         // Start a new timer
         fun start(startValue: Int){
-
             if (!paused) {
                 if (!isRunning) {
                     if (::t.isInitialized) t.interrupt()
